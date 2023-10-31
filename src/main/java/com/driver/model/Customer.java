@@ -10,13 +10,13 @@ public class Customer{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customerId;
-    private String mobileNo;
+    private String mobile;
     private String password;
 
     public Customer(){}
-    public Customer(int customerId, String mobileNo, String password, List<TripBooking> tripBookingList) {
+    public Customer(int customerId, String mobile, String password, List<TripBooking> tripBookingList) {
         this.customerId = customerId;
-        this.mobileNo = mobileNo;
+        this.mobile = mobile;
         this.password = password;
         this.tripBookingList = tripBookingList;
     }
@@ -32,12 +32,12 @@ public class Customer{
         this.customerId = customerId;
     }
 
-    public String getMobileNo() {
-        return mobileNo;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void setMobileNo(String mobileNo) {
-        this.mobileNo = mobileNo;
+    public void setMobile(String mobileNo) {
+        this.mobile = mobile;
     }
 
     public String getPassword() {

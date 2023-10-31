@@ -7,26 +7,27 @@ import javax.persistence.*;
 public class TripBooking{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int tripBookId;
+    private int tripBookingId;
     private String fromLocation;
     private String toLocation;
     private int distanceInKm;
     public TripBooking(){}
+    @Enumerated(value = EnumType.STRING)
+    private TripStatus status;
+    private int bill;
 
-    public TripBooking(int tripBookId, String fromLocation, String toLocation, int distanceInKm, TripStatus tripStatus, int bill, Customer customer, Driver driver) {
-        this.tripBookId = tripBookId;
+    public TripBooking(int tripBookingId, String fromLocation, String toLocation, int distanceInKm, TripStatus status, int bill, Customer customer, Driver driver) {
+        this.tripBookingId = tripBookingId;
         this.fromLocation = fromLocation;
         this.toLocation = toLocation;
         this.distanceInKm = distanceInKm;
-        this.tripStatus = tripStatus;
+        this.status = status;
         this.bill = bill;
         this.customer = customer;
         this.driver = driver;
     }
 
-    @Enumerated(value = EnumType.STRING)
-    private TripStatus tripStatus;
-    private int bill;
+
 
 
     @ManyToOne
@@ -38,12 +39,12 @@ public class TripBooking{
     private Driver driver;
 
 
-    public int getTripBookId() {
-        return tripBookId;
+    public int getTripBookingId() {
+        return tripBookingId;
     }
 
-    public void setTripBookId(int tripBookId) {
-        this.tripBookId = tripBookId;
+    public void setTripBookId(int tripBookingId) {
+        this.tripBookingId = tripBookingId;
     }
 
     public String getFromLocation() {
@@ -70,12 +71,12 @@ public class TripBooking{
         this.distanceInKm = distanceInKm;
     }
 
-    public TripStatus getTripStatus() {
-        return tripStatus;
+    public TripStatus getStatus() {
+        return status;
     }
 
-    public void setTripStatus(TripStatus tripStatus) {
-        this.tripStatus = tripStatus;
+    public void setStatus(TripStatus tripStatus) {
+        this.status = tripStatus;
     }
 
     public int getBill() {

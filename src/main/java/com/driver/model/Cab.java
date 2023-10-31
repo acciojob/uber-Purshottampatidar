@@ -6,13 +6,13 @@ import javax.persistence.*;
 public class Cab{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int cabId;
+    private int id;
     private int perKmRate;
     private boolean available;
 
     public Cab(){}
-    public Cab(int cabId, int perKmRate, boolean available, Driver driver) {
-        this.cabId = cabId;
+    public Cab(int id, int perKmRate, boolean available, Driver driver) {
+        this.id = id;
         this.perKmRate = perKmRate;
         this.available = available;
         this.driver = driver;
@@ -21,12 +21,12 @@ public class Cab{
     @OneToOne(mappedBy = "cab",cascade = CascadeType.ALL)
     private Driver driver;
 
-    public int getCabId() {
-        return cabId;
+    public int getId() {
+        return id;
     }
 
     public void setCabId(int cabId) {
-        this.cabId = cabId;
+        this.id = id;
     }
 
     public int getPerKmRate() {
@@ -37,7 +37,7 @@ public class Cab{
         this.perKmRate = perKmRate;
     }
 
-    public boolean isAvailable() {
+    public boolean getAvailable() {
         return available;
     }
 
