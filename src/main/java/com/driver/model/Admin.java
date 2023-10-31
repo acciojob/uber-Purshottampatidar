@@ -6,19 +6,23 @@ import javax.persistence.*;
 public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int adminId;
     private String userName;
     private String password;
 
-
-
-
-
-    public int getId() {
-        return id;
+    public Admin() {}
+    public Admin(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
     }
 
+    public int getAdminId() {
+        return adminId;
+    }
 
+    public void setAdminId(int adminId) {
+        this.adminId = adminId;
+    }
 
     public String getUserName() {
         return userName;
@@ -33,11 +37,6 @@ public class Admin {
     }
 
     public void setPassword(String password) {
-        this.password = password;
-    }
-    public Admin(){}
-    public Admin(String userName, String password) {
-        this.userName = userName;
         this.password = password;
     }
 }
