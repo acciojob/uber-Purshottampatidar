@@ -26,13 +26,13 @@ public class CustomerController {
 	}
 
 	@PostMapping("/bookTrip")
-	public ResponseEntity<Integer> bookTrip(@RequestParam Integer customerId, @RequestParam String fromLocation, @RequestParam String toLocation, @RequestParam Integer distanceInKm) throws Exception {
+	public ResponseEntity<?> bookTrip(@RequestParam Integer customerId, @RequestParam String fromLocation, @RequestParam String toLocation, @RequestParam Integer distanceInKm) throws Exception {
 		try{
 			TripBooking bookedTrip=customerService.bookTrip(customerId, fromLocation, toLocation, distanceInKm);
 			return new ResponseEntity<>(bookedTrip.getTripBookingId(), HttpStatus.CREATED);
 		}
 		catch (Exception e){
-			return new ResponseEntity<>(-1,HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
 		}
 
 	}
