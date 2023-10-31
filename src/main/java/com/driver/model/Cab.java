@@ -2,7 +2,7 @@ package com.driver.model;
 
 import javax.persistence.*;
 @Entity
-@Table
+@Table(schema = "cabs")
 public class Cab{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ public class Cab{
         return id;
     }
 
-    public void setCabId(int cabId) {
+    public void setId(int id) {
         this.id = id;
     }
 

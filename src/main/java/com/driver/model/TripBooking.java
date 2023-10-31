@@ -43,7 +43,7 @@ public class TripBooking{
         return tripBookingId;
     }
 
-    public void setTripBookId(int tripBookingId) {
+    public void setTripBookingId(int tripBookingId) {
         this.tripBookingId = tripBookingId;
     }
 
