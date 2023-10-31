@@ -1,5 +1,7 @@
 package com.driver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 @Entity
 @Table(schema = "cabs")
@@ -18,6 +20,7 @@ public class Cab{
         this.driver = driver;
     }
 
+    @JsonIgnore
     @OneToOne(mappedBy = "cab",cascade = CascadeType.ALL)
     private Driver driver;
 

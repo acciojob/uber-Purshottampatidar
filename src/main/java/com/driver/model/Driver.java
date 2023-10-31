@@ -1,5 +1,7 @@
 package com.driver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +26,9 @@ public class Driver{
 
     @OneToOne
     @JoinColumn
+    @JsonIgnore
     private Cab cab;
+
 
     @OneToMany(mappedBy = "driver",cascade = CascadeType.ALL)
     private List<TripBooking> tripBookingList=new ArrayList<TripBooking>();

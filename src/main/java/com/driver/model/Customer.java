@@ -1,5 +1,7 @@
 package com.driver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,10 @@ public class Customer{
     private String mobile;
     private String password;
 
+
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+    private List<TripBooking> tripBookingList=new ArrayList<>();
+
     public Customer(){}
     public Customer(int customerId, String mobile, String password, List<TripBooking> tripBookingList) {
         this.customerId = customerId;
@@ -20,9 +26,6 @@ public class Customer{
         this.password = password;
         this.tripBookingList = tripBookingList;
     }
-
-    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
-    private List<TripBooking> tripBookingList=new ArrayList<>();
 
     public int getCustomerId() {
         return customerId;
@@ -36,7 +39,7 @@ public class Customer{
         return mobile;
     }
 
-    public void setMobile(String mobileNo) {
+    public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 

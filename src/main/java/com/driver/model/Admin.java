@@ -5,14 +5,16 @@ import javax.persistence.*;
 @Table
 public class Admin {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int adminId;
-    private String Username;
+
+    private String username;
     private String password;
 
     public Admin() {}
-    public Admin(String UserName, String password) {
-        this.Username = UserName;
+    public Admin(int adminId, String username, String password) {
+        this.adminId = adminId;
+        this.username = username;
         this.password = password;
     }
 
@@ -25,11 +27,11 @@ public class Admin {
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        Username = username;
+        this.username = username;
     }
 
     public String getPassword() {
